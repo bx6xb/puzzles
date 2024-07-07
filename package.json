@@ -1,0 +1,13 @@
+{
+  "name": "puzzles-vite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Yan Yu <bx6xbChosen1@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.3.2"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx,scss}\""
+  }
+}
