@@ -1,11 +1,12 @@
-import { NavLink } from "react-router-dom"
-import { Container } from "../../components/Container/Container"
-import { Logo } from "./Logo/Logo"
-import { ThemeSwitcher } from "./ThemeSwitcher/ThemeSwitcher"
-import s from "./Header.module.css"
+import { NavLink } from 'react-router-dom'
+import { Container } from '../../components/Container/Container'
+import { Logo } from './Logo/Logo'
+import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher'
+import s from './Header.module.css'
 
 export const Header = () => {
-  const linkStyle = ({ isActive }: { isActive: boolean }) => (isActive ? s.active : "")
+  const linkStyle = ({ isActive }: { isActive: boolean }) =>
+    isActive ? s.active : ''
 
   return (
     <div className={s.header}>

@@ -1,12 +1,12 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { GridCell } from "../../components/GameGrid/GameGrid"
-import { getRandomNumber } from "../../utils/createRandomNumberArray/createRandomNumberArray"
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { getRandomNumber } from '../../utils/createRandomNumberArray/createRandomNumberArray'
+import { GridCell } from '../schulteTableReducer/schulteTableReducer'
 
 export const oppositeKeys = {
-  KeyS: "KeyW", // 87 - w (up direction)
-  KeyD: "KeyA", // 65 - a (left direction)
-  KeyW: "KeyS", // 83 - s (down direction)
-  KeyA: "KeyD", // 68 - d (rigth direction)
+  KeyS: 'KeyW', // 87 - w (up direction)
+  KeyD: 'KeyA', // 65 - a (left direction)
+  KeyW: 'KeyS', // 83 - s (down direction)
+  KeyA: 'KeyD' // 68 - d (rigth direction)
 } as const
 
 // 87 = KeyW
@@ -21,9 +21,9 @@ export const initialState = {
   snakePosition: [
     [0, 2],
     [0, 1],
-    [0, 0],
+    [0, 0]
   ],
-  direction: "KeyS",
+  direction: 'KeyS',
   isDirectionChanged: false,
   gridSize: 10,
   foodPosition: [],
@@ -32,20 +32,23 @@ export const initialState = {
   bestScore: 0,
   time: 0,
   isTimeRunning: false,
-  messageText: "",
+  messageText: ''
 } as SnakeState
 
 const slice = createSlice({
-  name: "snake",
+  name: 'snake',
   initialState,
   reducers: {
     setCells(state) {
       const cells: GridCell[][] = Array(state.gridSize)
         .fill(null)
-        .map((v, i) =>
+        .map((_, i) =>
           Array(state.gridSize)
             .fill(null)
-            .map((v, index) => ({ id: +`${i}${index}`, content: `${i}${index}` })),
+            .map((_, index) => ({
+              id: +`${i}${index}`,
+              content: `${i}${index}`
+            }))
         )
       return { ...state, cells }
     },
@@ -58,7 +61,10 @@ const slice = createSlice({
     setDirection(state, action: PayloadAction<{ direction: DirectionValues }>) {
       return { ...state, direction: action.payload.direction }
     },
-    setDirectionChanged(state, action: PayloadAction<{ directionChanged: boolean }>) {
+    setDirectionChanged(
+      state,
+      action: PayloadAction<{ directionChanged: boolean }>
+    ) {
       return { ...state, directionChanged: action.payload.directionChanged }
     },
     createFood(state) {
@@ -68,7 +74,7 @@ const slice = createSlice({
         const yPosFood: number = getRandomNumber(0, state.gridSize - 1)
         const xPosFood: number = getRandomNumber(0, state.gridSize - 1)
 
-        state.snakePosition.forEach((val) => {
+        state.snakePosition.forEach(val => {
           const [y, x] = val
           if (y === yPosFood && x === xPosFood) {
             c = true
@@ -79,7 +85,7 @@ const slice = createSlice({
           state.foodPosition = [yPosFood, xPosFood]
           state.cells[yPosFood][xPosFood] = {
             ...state.cells[yPosFood][xPosFood],
-            backgroundColor: "red",
+            backgroundColor: 'red'
           }
         }
       }
@@ -111,24 +117,24 @@ const slice = createSlice({
         snakePosition: [
           [2, 0],
           [1, 0],
-          [0, 0],
+          [0, 0]
         ],
-        direction: "KeyS",
+        direction: 'KeyS'
       }
     },
     removeSnakePosition(state) {
       return {
         ...state,
-        snakePosition: state.snakePosition.slice(0, -1),
+        snakePosition: state.snakePosition.slice(0, -1)
       }
     },
     addSnakePosition(state, action: PayloadAction<{ pos: number[] }>) {
       return {
         ...state,
-        snakePosition: [action.payload.pos, ...state.snakePosition],
+        snakePosition: [action.payload.pos, ...state.snakePosition]
       }
-    },
-  },
+    }
+  }
 })
 
 export const snakeReducer = slice.reducer
@@ -145,11 +151,11 @@ export const {
   setRecord,
   setTimeRunning,
   removeSnakePosition,
-  addSnakePosition,
+  addSnakePosition
 } = slice.actions
 
 // types
-export type DirectionValues = "KeyW" | "KeyA" | "KeyS" | "KeyD"
+export type DirectionValues = 'KeyW' | 'KeyA' | 'KeyS' | 'KeyD'
 type SnakeState = {
   cells: GridCell[][]
   xPos: number

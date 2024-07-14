@@ -1,5 +1,5 @@
-import { Icon } from "../../../components/Icon/Icon"
-import s from "./Logo.module.css"
+import { Icon } from '../../../components/Icon/Icon'
+import s from './Logo.module.css'
 
 export const Logo = () => {
   return (

@@ -56,7 +56,6 @@ export const useSnake = () => {
   }, [isTimeRunning])
 
   const playBtnOnClick = () => {
-    debugger
     dispatch(setTimeRunning({ isTimeRunning: true }))
   }
 

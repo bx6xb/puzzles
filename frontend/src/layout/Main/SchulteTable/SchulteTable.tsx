@@ -1,8 +1,8 @@
-import { GameGrid } from "../../../components/GameGrid/GameGrid"
-import { useSchulteTable } from "./hooks/useSchulteTable"
-import { memo } from "react"
-import s from "./SchulteTable.module.css"
-import { BackButton } from "../../../components/BackButton/BackButton"
+import { GameGrid } from '../../../components/GameGrid/GameGrid'
+import { useSchulteTable } from './hooks/useSchulteTable'
+import { memo } from 'react'
+import s from './SchulteTable.module.css'
+import { BackButton } from '../../../components/BackButton/BackButton'
 
 export const SchulteTable = memo(() => {
   const {
@@ -18,7 +18,7 @@ export const SchulteTable = memo(() => {
     playBtnOnClick,
     hintsModeOnChange,
     gridSizeOnSize,
-    shuffleModeOnChange,
+    shuffleModeOnChange
   } = useSchulteTable()
 
   return (
@@ -28,9 +28,11 @@ export const SchulteTable = memo(() => {
         <div>
           <div className={s.gameInfoWrapper}>
             <span className={s.bestTime}>
-              Best time {gridSize + "x" + gridSize}: {bestRecords[gridSize]}
+              Best time {gridSize + 'x' + gridSize}: {bestRecords[gridSize]}
             </span>
-            {currentNumber ? <span className={s.currentNumber}>Find {currentNumber}</span> : null}
+            {currentNumber ? (
+              <span className={s.currentNumber}>Find {currentNumber}</span>
+            ) : null}
           </div>
 
           <GameGrid
@@ -46,10 +48,10 @@ export const SchulteTable = memo(() => {
 
         <div className={s.settings}>
           <span>Settings</span>
-          <hr style={{ margin: "10px 0" }} />
+          <hr style={{ margin: '10px 0' }} />
           <form>
             <label>
-              Hints mode{" "}
+              Hints mode{' '}
               <input
                 type="checkbox"
                 onChange={hintsModeOnChange}
@@ -59,12 +61,16 @@ export const SchulteTable = memo(() => {
             </label>
             <br />
             <label>
-              Shuffle mode{" "}
-              <input type="checkbox" onChange={shuffleModeOnChange} checked={isShuffleMode} />
+              Shuffle mode{' '}
+              <input
+                type="checkbox"
+                onChange={shuffleModeOnChange}
+                checked={isShuffleMode}
+              />
             </label>
             <br />
             <label>
-              Game grid size{" "}
+              Game grid size{' '}
               <select value={gridSize} onChange={gridSizeOnSize}>
                 <option value="2">2x2</option>
                 <option value="3">3x3</option>

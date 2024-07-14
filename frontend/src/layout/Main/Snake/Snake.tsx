@@ -1,9 +1,10 @@
-import { BackButton } from "../../../components/BackButton/BackButton"
-import { GameGrid } from "../../../components/GameGrid/GameGrid"
-import { useSnake } from "./hooks/useSnake"
+import { BackButton } from '../../../components/BackButton/BackButton'
+import { GameGrid } from '../../../components/GameGrid/GameGrid'
+import { useSnake } from './hooks/useSnake'
 
 export const Snake = () => {
-  const { gridSize, cells, isTimeRunning, messageText, playBtnOnClick } = useSnake()
+  const { gridSize, cells, isTimeRunning, messageText, playBtnOnClick } =
+    useSnake()
 
   return (
     <>

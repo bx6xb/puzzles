@@ -1,4 +1,4 @@
-import s from "./PlayButton.module.css"
+import s from './PlayButton.module.css'
 
 type PlayButtonPropsType = {
   callback: () => void

@@ -42,10 +42,10 @@
     "vite": "^5.3.3"
   },
   "scripts": {
-    "format": "prettier --wrte \"**/*.{ts,tsx,scss}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,scss}\"",
     "dev:frontend": "cd frontend && vite",
     "build:frontend": "cd frontend && tsc -b && vite build",
-    "lint:frontend": "ecd frontend && slint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:frontend": "cd frontend && eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview:frontend": "cd frontend && vite preview",
     "test:frontend": "cd frontend && jest --watch",
     "watch:backend": "cd backend && tsc -w",

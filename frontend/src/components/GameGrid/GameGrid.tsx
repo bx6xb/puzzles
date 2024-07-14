@@ -20,7 +20,8 @@ export const GameGrid = (props: GridProps) => {
             style={{
               gridTemplateColumns: `repeat(${props.gridWidth}, 1fr)`,
               gridTemplateRows: `repeat(${props.gridHeight}, 1fr) `
-            }}>
+            }}
+          >
             {props.cells.map(cell => (
               <Cell key={cell.id} gridCell={cell} onClick={props.cellOnClick} />
             ))}

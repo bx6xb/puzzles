@@ -1,6 +1,6 @@
-import { createRandomNumberArray } from "./createRandomNumberArray"
+import { createRandomNumberArray } from './createRandomNumberArray'
 
-test("array contains a certain number of non-repeating digits", () => {
+test('array contains a certain number of non-repeating digits', () => {
   const min = 1
   const max = 9
   const length = 9

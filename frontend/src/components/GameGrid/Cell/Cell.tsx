@@ -1,9 +1,16 @@
-import { GridCell } from "../GameGrid"
-import s from "./Cell.module.css"
+import { GridCell } from '../../../store/schulteTableReducer/schulteTableReducer'
+import s from './Cell.module.css'
 
-export const Cell = ({ gridCell: { id, content, backgroundColor, color }, onClick }: CellProps) => {
+export const Cell = ({
+  gridCell: { id, content, backgroundColor, color },
+  onClick
+}: CellProps) => {
   return (
-    <div onClick={() => onClick && onClick(id)} className={s.cell} style={{ backgroundColor, color }}>
+    <div
+      onClick={() => onClick && onClick(id)}
+      className={s.cell}
+      style={{ backgroundColor, color }}
+    >
       {content}
     </div>
   )
