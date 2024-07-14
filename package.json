@@ -4,10 +4,6 @@
   "main": "index.ts",
   "author": "Yan Yu <bx6xbChosen1@gmail.com>",
   "license": "MIT",
-  "workspaces": [
-    "./frontend",
-    "./backend"
-  ],
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
     "axios": "^1.7.2",
